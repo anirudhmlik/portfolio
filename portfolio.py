@@ -15,34 +15,14 @@ def load_lottieurl(url):
 
 lottie_animation = load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_tfb3estd.json")
 
-# Custom CSS for sticky sidebar and improved layout
+# Custom CSS
 st.markdown("""
 <style>
-/* Sticky Sidebar */
-.sidebar-sticky {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 300px;
-    background-color: #0b0c10;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    font-family: Arial, sans-serif;
-}
-
-/* Main Scrollable Content */
-.main-scroll {
-    margin-right: 350px;
-    padding: 30px;
-}
-
-/* Navbar */
 #navbar {
     position: fixed;
     top: 0;
     left: 0;
-    right: 320px;
+    right: 0;
     background-color: #0b0c10;
     color: white;
     z-index: 9999;
@@ -50,9 +30,9 @@ st.markdown("""
     justify-content: space-around;
     align-items: center;
     padding: 10px 0;
+    font-family: Arial, sans-serif;
     font-weight: bold;
 }
-
 #navbar a {
     color: white;
     text-decoration: none;
@@ -60,11 +40,9 @@ st.markdown("""
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-
 #navbar a:hover {
     background-color: #1f2833;
 }
-
 #progress-container {
     width: 100%;
     background: #ddd;
@@ -74,29 +52,27 @@ st.markdown("""
     left: 0;
     z-index: 9999;
 }
-
 #progress-bar {
     height: 5px;
     background: #66fcf1;
     width: 0%;
 }
-
+body {
+    padding-top: 70px;
+}
 </style>
 
 <div id="navbar">
     <a href="#home">Home</a>
-    <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
 </div>
-
 <div id="progress-container">
     <div id="progress-bar"></div>
 </div>
-
 <script>
 window.onscroll = function() {
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -107,104 +83,195 @@ window.onscroll = function() {
 </script>
 """, unsafe_allow_html=True)
 
-# Sidebar (Sticky Profile)
-with st.container():
-    components.html("""
-    <div class='sidebar-sticky'>
-        <img src="profile_picture.jpg" alt="Anirudh Malik" style="width:100%; border-radius:10px;">
-        <h2>Anirudh Malik</h2>
-        <p>📍 Delhi, India</p>
-        <p><b>Email:</b> anirudhchoudhary308@gmail.com</p>
-        <p><b>Phone:</b> +91 9058176356</p>
-        <a href="https://linkedin.com/in/whoisaphysicist/" target="_blank">LinkedIn</a> | 
-        <a href="https://github.com/anirudhmlik" target="_blank">GitHub</a>
-        <br><br>
-        <a href="anirudh_malik_cv.pdf" download style="color:#66fcf1;">📄 Download CV</a><br>
-        <a href="anirudh_malik_cv.pdf" target="_blank" style="color:#66fcf1;">👁️ View CV Inline</a>
-        <hr>
-        <p><b>Languages:</b> English, Hindi</p>
-        <p><b>Interests:</b> AI product design, ML research, teaching, scientific computing, astrophysics</p>
-        <p><b>Freelance Gigs:</b> AI chatbot dev, real estate chatbot, data pipeline automation</p>
-    </div>
-    """, height=800)
 
-# Main Content (Scrollable)
-with st.container():
-    st.markdown('<div class="main-scroll">', unsafe_allow_html=True)
-    st_lottie(lottie_animation, height=200)
-    st.title("Anirudh Malik")
-    st.subheader("Scientific Software Engineer | Data Scientist | ML Engineer")
+# ---- Sidebar Profile ----
+col_main, col_profile = st.columns([3, 1], gap="large")
 
-    st.markdown('<div id="about"></div>', unsafe_allow_html=True)
-    st.header("👋 About Me")
+with col_profile:
+    st.image("profile_picture.jpg", caption="Anirudh Malik", width=220)
+    st.markdown("**📍 Location:** Delhi, India")
+    st.markdown("**🌐 Languages:** English, Hindi")
+    st.markdown("**💬 Interests:**")
     st.write("""
-    I’m a Scientific Software Engineer and Machine Learning Specialist passionate about applying AI to scientific and business challenges.
-    
-    With experience in MLOps, NLP, particle physics applications, and full-stack AI systems, I specialize in building end-to-end machine learning pipelines, from data collection to deployment.
-
-    Currently working on Generative AI projects and large-scale ML systems, I’m always eager to collaborate, innovate, and solve real-world problems.
+    - Machine Learning in Physics  
+    - AI Product Engineering  
+    - Cloud Deployment (AWS)  
+    - Automation & Chatbots
     """)
+    st.markdown("**🏫 School Education:**")
+    st.write("""
+    - Senior Secondary (Science), Kendriya Vidyalaya  
+    - Secondary School, Kendriya Vidyalaya
+    """)
+    st.markdown("**💼 Freelance Projects:**")
+    st.write("""
+    - AI Chatbots for Real Estate  
+    - WhatsApp/Telegram Expense Tracker  
+    - Alumni RAG-based Assistant
+    """)
+    st.markdown("[💼 LinkedIn](https://linkedin.com/in/whoisaphysicist/)")
+    st.markdown("[🐙 GitHub](https://github.com/anirudhmlik)")
 
+    try:
+        with open("anirudh_malik_cv.pdf", "rb") as pdf_file:
+            st.download_button("📄 Download CV", pdf_file, file_name="Anirudh_Malik_CV.pdf")
+            if st.button("👁️ View CV Inline"):
+                components.html(f"""
+                    <embed src="anirudh_malik_cv.pdf" width="700" height="900" type="application/pdf">
+                """, height=900)
+    except FileNotFoundError:
+        st.warning("CV file not found.")
+
+    st.write("**Email:** anirudhchoudhary308@gmail.com")
+    st.write("**Contact:** +91 9058176356")
+
+
+# ---- Main Content ----
+with col_main:
+    st.markdown('<div id="home"></div>', unsafe_allow_html=True)
+    st_lottie(lottie_animation, height=250)
+    st.title("Anirudh Malik")
+    st.subheader("Scientific Software Engineer | Data Scientist | MLOps Engineer")
+    st.write("""
+I’m Anirudh Malik — a Scientific Software Engineer and Data Scientist passionate about bridging AI with real-world applications.  
+I specialize in deploying scalable machine learning solutions, developing AI-powered chatbots, and optimizing ML pipelines for production environments.  
+With a solid foundation in scientific research and practical engineering, I help transform ideas into automated, efficient systems.
+""")
+    st.markdown("---")
+
+
+    # Skills
     st.markdown('<div id="skills"></div>', unsafe_allow_html=True)
     st.header("📊 Skills Overview")
 
-    skills = {
+    skill_groups = {
         "Programming Languages": ["Python", "R", "SQL", "C++", "CUDA", "Bash"],
-        "ML & DL Frameworks": ["TensorFlow", "PyTorch", "Scikit-learn", "Hugging Face Transformers"],
+        "ML & Deep Learning Frameworks": ["TensorFlow", "PyTorch", "Scikit-learn", "Hugging Face Transformers"],
         "MLOps & Cloud Deployment": ["MLflow", "Apache Airflow", "Docker", "Kubernetes", "AWS EC2", "AWS Lambda"],
         "Data Tools": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "REST APIs"],
         "Databases": ["MongoDB", "PostgreSQL", "MySQL", "Oracle"],
-        "Scientific Tools": ["ROOT", "Geant4", "MadGraph", "Pythia8", "DDSCAT", "Optimal Transport"]
+        "Scientific & Physics Tools": ["ROOT", "Geant4", "MadGraph", "Pythia8", "DDSCAT", "Optimal Transport"]
     }
 
-    for category, skills_list in skills.items():
+    for category, skills in skill_groups.items():
         st.subheader(f"🔸 {category}")
-        st.markdown(f"<div style='font-size:17px; color:#66fcf1;'>{' • '.join(skills_list)}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='font-size:20px; color:#4CAF50;'>{' — '.join(skills)}</div>", unsafe_allow_html=True)
+        st.markdown("---")
 
+
+    # Projects
     st.markdown('<div id="projects"></div>', unsafe_allow_html=True)
     st.header("🚀 Key Projects")
-    st.write("""
-    - **RAG-based Alumni Chatbot:** Automated alumni query handling using Ollama, LangChain, ChromaDB.
-    - **AI Property Chatbot:** NLP-powered property filter bot saving 15+ hours/week for real estate clients.
-    - **Expense Tracker Bots:** Chat-based trackers deployed on WhatsApp and Telegram.
-    - **Electron ID @ CERN (MSc Thesis):** ML-based electron classifier trained using ATLAS Monte Carlo datasets.
-    - **3D Schrödinger Solver:** CUDA-accelerated 3D equation solver comparing CPU-GPU performance.
-    """)
 
+    projects = [
+        {"title": "RAG-based Alumni Chatbot",
+         "description": "Automated alumni interactions using Ollama, Mistral, LangChain, Django, ChromaDB (RAG + vector search).",
+         "tech": "GenAI, Django, Docker, ChromaDB"},
+        {"title": "Expense Tracker Bots",
+         "description": "Conversational bots for managing expenses via WhatsApp and Telegram.",
+         "tech": "Python, Flask, Telegram API"},
+        {"title": "AI-Powered Property Chatbot",
+         "description": "Real estate chatbot handling queries like '3BHK under ₹1.5Cr near Marina' using GPT-based NLP pipelines.",
+         "tech": "GPT APIs, Flask, Docker, CSV/JSON backend"},
+        {"title": "Electron ID at CERN",
+         "description": "Improved electron ID using ML techniques (PICNN, Optimal Transport) on ATLAS Monte Carlo datasets.",
+         "tech": "TensorFlow, ROOT, C++, Optimal Transport"},
+        {"title": "3D Schrödinger Equation Solver",
+         "description": "Numerical solver using CUDA acceleration, benchmarking GPU vs CPU performance.",
+         "tech": "NumPy, SciPy, CUDA"}
+    ]
+
+    for project in projects:
+        st.markdown(f"""
+        <div style='margin-bottom: 20px;'>
+        <h3 style='color:#007acc;'>{project['title']}</h3>
+        <p style='font-size:16px; color:white;'>{project['description']}</p>
+        <p style='font-size:15px; font-style:italic; color:#888;'>Tech Used: {project['tech']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("---")
+
+
+    # Experience
     st.markdown('<div id="experience"></div>', unsafe_allow_html=True)
     st.header("💼 Professional Experience")
-    st.write("""
-    - **AI/ML Specialist – Imagenators, Noida (05/2025 – Present):**
-        - Built scalable RAG-based chatbots.
-        - Productionized AI microservices using Docker and AWS.
 
-    - **Research Associate – IIT Delhi (04/2025 – Present):**
-        - Simulated Higgs processes.
-        - ML-based data analysis using ROOT and Python.
+    experience = [
+        {"role": "AI/ML Specialist", "company": "Imagenators, Noida", "duration": "05/2025 – Present",
+         "details": [
+             "Developed alumni chatbot using RAG pipelines (Ollama, LangChain, ChromaDB).",
+             "Benchmarked GenAI vs traditional NLP pipelines for customer service solutions.",
+             "Containerized ML pipelines using Docker for scalable deployments."
+         ]},
+        {"role": "Trainee Developer", "company": "Dev Group, New Delhi", "duration": "02/2025 – 05/2025",
+         "details": [
+             "Created CO₂ emission estimator and deployed it on AWS EC2 using Flask APIs and MLflow.",
+             "Prototyped AI tools integrating REST APIs and LangChain."
+         ]},
+        {"role": "Research Associate", "company": "IIT Delhi", "duration": "04/2025 – Present",
+         "details": [
+             "Simulated Higgs boson production using MadGraph, Pythia8, and Delphes.",
+             "Optimized physics analysis using ROOT and Python."
+         ]},
+        {"role": "Graduate Researcher", "company": "University of Sheffield", "duration": "09/2023 – 09/2024",
+         "details": [
+             "Developed ML models to improve electron identification for CERN ATLAS experiment.",
+             "Worked on Optimal Transport techniques and statistical methods (sPlot, Tag-and-Probe)."
+         ]}
+    ]
 
-    - **Trainee Developer – Dev Group (02/2025 – 05/2025):**
-        - Built REST APIs for ML models.
-        - Created CO₂ emission estimator pipeline.
+    for job in experience:
+        with st.expander(f"{job['role']} – {job['company']} ({job['duration']})"):
+            details_html = "<br>".join([f"• {d}" for d in job["details"]])
+            st.markdown(f"<div style='font-size:17px; color:white;'>{details_html}</div>", unsafe_allow_html=True)
 
-    - **Graduate Researcher – University of Sheffield (09/2023 – 09/2024):**
-        - Thesis on ML-based particle classification.
-        - Applied Optimal Transport and PICNN architectures.
-    """)
+    st.markdown("---")
 
+
+    # Education
     st.markdown('<div id="education"></div>', unsafe_allow_html=True)
     st.header("🎓 Education")
-    st.write("""
-    - **MSc Particle Physics – University of Sheffield (2023–2024)**  
-      First Class with thesis focused on ATLAS detector and ML classifiers.
+    st.markdown("""
+<div style='font-size:17px; color:white;'>
+<ul>
+<li><b>MSc in Particle Physics</b>, University of Sheffield, UK (2023–2024) — First Class</li>
+<li><b>BSc in Physics, Math & Computer Science</b>, University of Delhi, India (2020–2023) — Distinction</li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
 
-    - **BSc Physics, Math & Computer Science – University of Delhi (2020–2023)**  
-      Graduated with Distinction.
+    st.header("📜 Certifications")
+    st.markdown("""
+<div style='font-size:17px; color:white;'>
+<ul>
+<li>Data Science, ML, DL, NLP – Krish AI Technologies (2025)</li>
+<li>SQL & Analytics – Udemy (2025)</li>
+<li>MLOps Bootcamp – Udemy (2024)</li>
+<li>Python for Data Analytics – Learntube.ai (2024)</li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
 
-    - **Schooling – Delhi Public School (DPS), India.**
-    """)
+    st.header("📝 MSc Dissertation Summary")
+    st.markdown("""
+<div style='font-size:17px; color:white;'>
+<b>Electron Identification Using Machine Learning at CERN ATLAS Detector</b><br><br>
+<ul>
+<li>Applied ML to enhance electron identification efficiency using ATLAS Monte Carlo datasets.</li>
+<li>Used Optimal Transport, PICNN, Tag-and-Probe, and sPlot techniques.</li>
+<li>Technologies: TensorFlow, ROOT, Geant4, ATLFAST3, Python, C++.</li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
 
+    st.markdown("---")
+
+
+    # Contact Form
+    st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
     st.header("📬 Contact & Feedback")
-    with st.form("contact_form"):
+    with st.form("feedback_form"):
         name = st.text_input("Your Name")
         feedback = st.text_area("Your Feedback")
         submitted = st.form_submit_button("Submit")
@@ -214,4 +281,3 @@ with st.container():
             st.success("Thank you for your feedback!")
 
     st.markdown("<p style='text-align:center;'>© 2025 Anirudh Malik | Built with Streamlit</p>", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
