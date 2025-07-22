@@ -88,7 +88,7 @@ window.onscroll = function() {
 col_main, col_profile = st.columns([3, 1], gap="large")
 
 with col_profile:
-    st.image("IMG_0190.HEIC", caption="Anirudh Malik", width=220)
+    st.image("photo.png", caption="Anirudh Malik", width=220)
     st.markdown("**📍 Location:** Delhi, India")
     st.write("**📞 Contact:** +91 9058176356")
     st.write("**✉️ Email:** anirudhchoudhary308@gmail.com")
