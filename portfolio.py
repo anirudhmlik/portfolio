@@ -98,8 +98,8 @@ with col_profile:
     try:
         with open("anirudh_malik_cv.pdf", "rb") as pdf_file:
             st.download_button("📄 Download CV", pdf_file, file_name="Anirudh_Malik_CV.pdf")
-        except FileNotFoundError:
-            st.warning("CV file not found.")
+    except FileNotFoundError:
+        st.warning("CV file not found.")
 
     st.markdown("---")
     st.subheader("🌐 Languages")
