@@ -288,4 +288,4 @@ With a solid foundation in scientific research and practical engineering, I help
                 f.write(f"Name: {name}\nFeedback: {feedback}\n---\n")
             st.success("Thank you for your feedback!")
 
-    st.markdown("<p style='text-align:center;'>© 2025 Anirudh Malik | Built with Streamlit</p>", unsafe_allow_html=True)
+    st.markdown(" ", unsafe_allow_html=True)
