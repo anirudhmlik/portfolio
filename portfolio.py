@@ -99,9 +99,7 @@ with col_profile:
         with open("anirudh_malik_cv.pdf", "rb") as pdf_file:
             st.download_button("📄 Download CV", pdf_file, file_name="Anirudh_Malik_CV.pdf")
             if st.button("👁️ View CV Inline"):
-    components.html(f"""
-        <iframe src="anirudh_malik_cv.pdf#toolbar=0" width="100%" height="800px"></iframe>
-    """, height=800)
+                components.html(f"""<iframe src="anirudh_malik_cv.pdf#toolbar=0" width="100%" height="800px"></iframe>""", height=800)
     except FileNotFoundError:
         st.warning("CV file not found.")
 
