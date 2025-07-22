@@ -14,6 +14,9 @@ def load_lottieurl(url):
     return r.json()
 
 lottie_animation = load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_tfb3estd.json")
+lottie_skills = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_tno6cg2w.json")
+lottie_projects = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_m9LrPt.json")
+lottie_experience = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_vOw8Q3.json")
 
 # Custom CSS for navbar and progress bar
 st.markdown("""
@@ -88,7 +91,7 @@ window.onscroll = function() {
 col_main, col_profile = st.columns([3, 1], gap="large")
 
 with col_profile:
-    st.image("profile_picture.jpg", caption="Anirudh Malik", width=220)
+    st.image("profile_picture.png", caption="Anirudh Malik", width=220)
     st.markdown("**📍 Location:** Delhi, India")
     st.write("**📞 Contact:** +91 9058176356")
     st.write("**✉️ Email:** anirudhchoudhary308@gmail.com")
@@ -121,12 +124,10 @@ with col_profile:
     st.write(""" MSc, University of Sheffield, UK
     """)
     
-    st.subheader("🎖️ Certifications")
+    st.subheader("🎖️ Hobbies")
     st.write("""
-- Data Science, ML, DL, NLP — Udemy  
-- Mastering SQL & Analytics — Udemy  
-- MLOps Bootcamp, DL Specialization — Udemy  
-- Python for Data Analytics — Learntube.ai
+- I love playing Basketball.
+- I have a keen interest in physics research which I wish to continue as a hobby and most of the amazing discoveries were made studing physics as a hobby.
 """)
 
 
@@ -146,6 +147,7 @@ With a solid foundation in scientific research and practical engineering, I help
 
     # Skills
     st.markdown('<div id="skills"></div>', unsafe_allow_html=True)
+    st_lottie(lottie_skills, height=100)
     st.header("📊 Skills Overview")
 
     skill_groups = {
@@ -164,6 +166,7 @@ With a solid foundation in scientific research and practical engineering, I help
 
     # Experience
     st.markdown('<div id="experience"></div>', unsafe_allow_html=True)
+    st_lottie(lottie_experience, height=100)
     st.header("💼 Professional Experience")
 
     experience = [
@@ -240,6 +243,7 @@ With a solid foundation in scientific research and practical engineering, I help
 
     # Projects
     st.markdown('<div id="projects"></div>', unsafe_allow_html=True)
+    st_lottie(lottie_projects, height=100)
     st.header("🚀 Key Projects")
 
     projects = [
