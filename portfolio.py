@@ -140,7 +140,7 @@ with col_main:
             st_lottie(lottie_animation, height=250)
 
     with col_intro:
-        st.markdown("<br><br>", unsafe_allow_html=True)
+        # st.markdown("<br><br>", unsafe_allow_html=True)
         st.title("Anirudh Malik")
         st.subheader("Scientific Software Engineer | Data Scientist | MLOps Engineer")
     st.write("""
