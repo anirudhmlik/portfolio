@@ -14,9 +14,6 @@ def load_lottieurl(url):
     return r.json()
 
 lottie_animation = load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_tfb3estd.json")
-lottie_skills = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_tno6cg2w.json")
-lottie_projects = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_m9LrPt.json")
-lottie_experience = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_tno6cg2w.json")
 
 # Custom CSS for navbar and progress bar
 st.markdown("""
@@ -134,9 +131,17 @@ with col_profile:
 # ---- Main Content ----
 with col_main:
     st.markdown('<div id="home"></div>', unsafe_allow_html=True)
-    st_lottie(lottie_animation, height=250)
-    st.title("Anirudh Malik")
-    st.subheader("Scientific Software Engineer | Data Scientist | MLOps Engineer")
+
+    # Create 2 columns: animation on the left, name on the right
+    col_lottie, col_intro = st.columns([1, 3])
+
+    with col_lottie:
+        if lottie_animation:
+            st_lottie(lottie_animation, height=250)
+
+    with col_intro:
+        st.title("Anirudh Malik")
+        st.subheader("Scientific Software Engineer | Data Scientist | MLOps Engineer")
     st.write("""
 I’m Anirudh Malik — a Scientific Software Engineer and Data Scientist passionate about bridging AI with real-world applications.  
 I specialize in deploying scalable machine learning solutions, developing AI-powered chatbots, and optimizing ML pipelines for production environments.  
@@ -147,7 +152,6 @@ With a solid foundation in scientific research and practical engineering, I help
 
     # Skills
     st.markdown('<div id="skills"></div>', unsafe_allow_html=True)
-    st_lottie(lottie_skills, height=100)
     st.header("📊 Skills Overview")
 
     skill_groups = {
@@ -166,7 +170,6 @@ With a solid foundation in scientific research and practical engineering, I help
 
     # Experience
     st.markdown('<div id="experience"></div>', unsafe_allow_html=True)
-    st_lottie(lottie_experience, height=100)
     st.header("💼 Professional Experience")
 
     experience = [
@@ -243,7 +246,6 @@ With a solid foundation in scientific research and practical engineering, I help
 
     # Projects
     st.markdown('<div id="projects"></div>', unsafe_allow_html=True)
-    st_lottie(lottie_projects, height=100)
     st.header("🚀 Key Projects")
 
     projects = [
