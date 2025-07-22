@@ -133,13 +133,14 @@ with col_main:
     st.markdown('<div id="home"></div>', unsafe_allow_html=True)
 
     # Create 2 columns: animation on the left, name on the right
-    col_lottie, col_intro = st.columns([1, 3])
+    col_lottie, col_intro = st.columns([2, 3])
 
     with col_lottie:
         if lottie_animation:
             st_lottie(lottie_animation, height=250)
 
     with col_intro:
+        st.markdown("<br><br>", unsafe_allow_html=True)
         st.title("Anirudh Malik")
         st.subheader("Scientific Software Engineer | Data Scientist | MLOps Engineer")
     st.write("""
