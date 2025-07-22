@@ -16,7 +16,7 @@ def load_lottieurl(url):
 lottie_animation = load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_tfb3estd.json")
 lottie_skills = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_tno6cg2w.json")
 lottie_projects = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_m9LrPt.json")
-lottie_experience = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_vOw8Q3.json")
+lottie_experience = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_tno6cg2w.json")
 
 # Custom CSS for navbar and progress bar
 st.markdown("""
