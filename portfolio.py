@@ -296,14 +296,18 @@ With a solid foundation in scientific research and practical engineering, I help
 
 #contact form
 import streamlit as st
-from datetime import datetime
-from pathlib import Path
+#from datetime import datetime
+#from pathlib import Path
 
 st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
 st.header("📬 Contact & Feedback")
+st.write("**📞 Contact:** +91 9058176356")
+st.write("**✉️ Email:** anirudhchoudhary308@gmail.com")
+st.markdown("[💼 LinkedIn](https://linkedin.com/in/whoisaphysicist/)")
+st.markdown("[🐙 GitHub](https://github.com/anirudhmlik)")
 
 # Create 3 columns
-col1, col2, col3 = st.columns([1, 1, 2])
+#col1, col2, col3 = st.columns([1, 1, 2])
 
 # Create feedback form
 #with st.form("feedback_form", clear_on_submit=True):
@@ -333,4 +337,4 @@ col1, col2, col3 = st.columns([1, 1, 2])
 #        else:
 #            st.warning("⚠️ Please fill all the fields before submitting.")
 
-st.markdown(" ", unsafe_allow_html=True)
+st.markdown(" MSc | ML Engineer | Anirudh Malik | Data Scientist | Immediately Available ", unsafe_allow_html=True)
