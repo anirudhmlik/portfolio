@@ -107,6 +107,19 @@ with col_profile:
     except FileNotFoundError:
         st.warning("Thesis file not found.")
 
+    # Inside col_profile or under Education section
+    try:
+        with open("Award Certificate.pdf", "rb") as msc_file:
+            st.download_button("📜 Download MSc Degree Certificate", msc_file, file_name="MSc_Degree_Anirudh_Malik.pdf")
+    except FileNotFoundError:
+        st.warning("MSc certificate file not found.")
+
+    try:
+        with open("bsc degree certificate.pdf", "rb") as bsc_file:
+            st.download_button("🎓 Download BSc Degree Certificate", bsc_file, file_name="BSc_Degree_Anirudh_Malik.pdf")
+    except FileNotFoundError:
+        st.warning("BSc certificate file not found.")
+
     st.markdown("---")
     st.subheader("🌐 Languages")
     st.write("- English (Professional)\n- Hindi (Native)")
