@@ -318,7 +318,7 @@ with st.form("feedback_form", clear_on_submit=True):
         if name.strip() and email.strip() and feedback.strip():
             try:
                 # Absolute path for safer write
-                log_path = os.path.join(os.path.dirname(__file__), "feedback_log.txt")
+                log_path = os.path.join(os.path.dirname(__file__), "feedback.txt")
                 with open(log_path, "a", encoding="utf-8") as f:
                     f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
                     f.write(f"Name: {name.strip()}\nEmail: {email.strip()}\nFeedback: {feedback.strip()}\n---\n")
