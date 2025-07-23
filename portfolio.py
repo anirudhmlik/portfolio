@@ -305,7 +305,7 @@ with st.form("feedback_form"):
 
     if submitted:
         if name.strip() and feedback.strip():
-            log_path = os.path.join(os.getcwd(), "feedback_log.txt")
+            log_path = os.path.join(os.getcwd(), "feedback.txt")
             try:
                 with open(log_path, "a", encoding="utf-8") as f:
                     f.write(f"Name: {name.strip()}\nFeedback: {feedback.strip()}\n---\n")
