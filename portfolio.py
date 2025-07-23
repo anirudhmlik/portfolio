@@ -296,15 +296,23 @@ With a solid foundation in scientific research and practical engineering, I help
 
 
     # Contact Form
-    st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
-    st.header("📬 Contact & Feedback")
-    with st.form("feedback_form"):
-        name = st.text_input("Your Name")
-        feedback = st.text_area("Your Feedback")
-        submitted = st.form_submit_button("Submit")
-        if submitted:
-            with open("feedback_log.txt", "a") as f:
-                f.write(f"Name: {name}\nFeedback: {feedback}\n---\n")
-            st.success("Thank you for your feedback!")
+import os
+
+with st.form("feedback_form"):
+    name = st.text_input("Your Name", max_chars=50)
+    feedback = st.text_area("Your Feedback", height=150)
+    submitted = st.form_submit_button("Submit")
+
+    if submitted:
+        if name.strip() and feedback.strip():
+            log_path = os.path.join(os.getcwd(), "feedback_log.txt")
+            try:
+                with open(log_path, "a", encoding="utf-8") as f:
+                    f.write(f"Name: {name.strip()}\nFeedback: {feedback.strip()}\n---\n")
+                st.success("✅ Thank you for your feedback!")
+            except Exception as e:
+                st.error(f"❌ Failed to save feedback: {e}")
+        else:
+            st.warning("⚠️ Please fill out both fields before submitting.")
 
     st.markdown(" ", unsafe_allow_html=True)
