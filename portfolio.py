@@ -101,6 +101,12 @@ with col_profile:
     except FileNotFoundError:
         st.warning("CV file not found.")
 
+    try:
+        with open("230224041_MSc_Particle_Physics_dissertation.pdf", "rb") as thesis_file:
+            st.download_button("📘 Download MSc Thesis", thesis_file, file_name="Anirudh_Malik_MSc_Thesis.pdf")
+    except FileNotFoundError:
+        st.warning("Thesis file not found.")
+
     st.markdown("---")
     st.subheader("🌐 Languages")
     st.write("- English (Professional)\n- Hindi (Native)")
