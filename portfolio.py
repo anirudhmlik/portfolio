@@ -306,31 +306,31 @@ st.header("📬 Contact & Feedback")
 col1, col2, col3 = st.columns([1, 1, 2])
 
 # Create feedback form
-with st.form("feedback_form", clear_on_submit=True):
-    with col1:
-        name = st.text_input("Name", placeholder="Enter your name")
-    with col2:
-        email = st.text_input("Email", placeholder="your@email.com")
-    with col3:
-        feedback = st.text_area("Your Feedback", height=150, placeholder="Write your feedback...")
+#with st.form("feedback_form", clear_on_submit=True):
+#    with col1:
+#        name = st.text_input("Name", placeholder="Enter your name")
+#    with col2:
+#        email = st.text_input("Email", placeholder="your@email.com")
+#    with col3:
+#        feedback = st.text_area("Your Feedback", height=150, placeholder="Write your feedback...")
 
-    submitted = st.form_submit_button("Submit")
+#    submitted = st.form_submit_button("Submit")
 
-    if submitted:
-        if name.strip() and email.strip() and feedback.strip():
-            try:
-                feedback_dir = Path(__file__).parent
-                log_file = feedback_dir / "feedback_log.txt"
-                with open(log_file, "a", encoding="utf-8") as f:
-                    f.write(f"{datetime.now().isoformat()}\n")
-                    f.write(f"Name: {name.strip()}\n")
-                    f.write(f"Email: {email.strip()}\n")
-                    f.write(f"Feedback: {feedback.strip()}\n")
-                    f.write("-" * 40 + "\n")
-                st.success("✅ Thank you for your feedback!")
-            except Exception as e:
-                st.error(f"❌ Failed to save feedback: {e}")
-        else:
-            st.warning("⚠️ Please fill all the fields before submitting.")
+#    if submitted:
+#        if name.strip() and email.strip() and feedback.strip():
+#            try:
+#                feedback_dir = Path(__file__).parent
+#                log_file = feedback_dir / "feedback.txt"
+#                with open(log_file, "a", encoding="utf-8") as f:
+#                    f.write(f"{datetime.now().isoformat()}\n")
+#                    f.write(f"Name: {name.strip()}\n")
+#                    f.write(f"Email: {email.strip()}\n")
+#                    f.write(f"Feedback: {feedback.strip()}\n")
+#                    f.write("-" * 40 + "\n")
+#                st.success("✅ Thank you for your feedback!")
+#            except Exception as e:
+#                st.error(f"❌ Failed to save feedback: {e}")
+#        else:
+#            st.warning("⚠️ Please fill all the fields before submitting.")
 
 st.markdown(" ", unsafe_allow_html=True)
