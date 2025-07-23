@@ -294,25 +294,38 @@ With a solid foundation in scientific research and practical engineering, I help
     st.markdown("---")
 
 
-
-    # Contact Form
+#contact form
 import os
+from datetime import datetime
 
-with st.form("feedback_form"):
-    name = st.text_input("Your Name", max_chars=50)
-    feedback = st.text_area("Your Feedback", height=150)
+st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
+st.header("📬 Contact & Feedback")
+
+# Layout: 3 columns
+col1, col2, col3 = st.columns([1, 1, 2])
+
+with st.form("feedback_form", clear_on_submit=True):
+    with col1:
+        name = st.text_input("Your Name")
+    with col2:
+        email = st.text_input("Your Email")
+    with col3:
+        feedback = st.text_area("Your Feedback", height=150)
+
     submitted = st.form_submit_button("Submit")
 
     if submitted:
-        if name.strip() and feedback.strip():
-            log_path = os.path.join(os.getcwd(), "feedback.txt")
+        if name.strip() and email.strip() and feedback.strip():
             try:
+                # Absolute path for safer write
+                log_path = os.path.join(os.path.dirname(__file__), "feedback_log.txt")
                 with open(log_path, "a", encoding="utf-8") as f:
-                    f.write(f"Name: {name.strip()}\nFeedback: {feedback.strip()}\n---\n")
-                st.success("✅ Thank you for your feedback!")
+                    f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                    f.write(f"Name: {name.strip()}\nEmail: {email.strip()}\nFeedback: {feedback.strip()}\n---\n")
+                st.success("✅ Feedback submitted successfully!")
             except Exception as e:
-                st.error(f"❌ Failed to save feedback: {e}")
+                st.error(f"❌ Could not save feedback: {e}")
         else:
-            st.warning("⚠️ Please fill out both fields before submitting.")
+            st.warning("⚠️ All fields are required.")
 
-    st.markdown(" ", unsafe_allow_html=True)
+st.markdown(" ", unsafe_allow_html=True)
