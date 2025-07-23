@@ -295,37 +295,42 @@ With a solid foundation in scientific research and practical engineering, I help
 
 
 #contact form
-import os
+import streamlit as st
 from datetime import datetime
+from pathlib import Path
 
 st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
 st.header("📬 Contact & Feedback")
 
-# Layout: 3 columns
+# Create 3 columns
 col1, col2, col3 = st.columns([1, 1, 2])
 
+# Create feedback form
 with st.form("feedback_form", clear_on_submit=True):
     with col1:
-        name = st.text_input("Your Name")
+        name = st.text_input("Name", placeholder="Enter your name")
     with col2:
-        email = st.text_input("Your Email")
+        email = st.text_input("Email", placeholder="your@email.com")
     with col3:
-        feedback = st.text_area("Your Feedback", height=150)
+        feedback = st.text_area("Your Feedback", height=150, placeholder="Write your feedback...")
 
     submitted = st.form_submit_button("Submit")
 
     if submitted:
         if name.strip() and email.strip() and feedback.strip():
             try:
-                # Absolute path for safer write
-                log_path = os.path.join(os.path.dirname(__file__), "feedback.txt")
-                with open(log_path, "a", encoding="utf-8") as f:
-                    f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-                    f.write(f"Name: {name.strip()}\nEmail: {email.strip()}\nFeedback: {feedback.strip()}\n---\n")
-                st.success("✅ Feedback submitted successfully!")
+                feedback_dir = Path(__file__).parent
+                log_file = feedback_dir / "feedback_log.txt"
+                with open(log_file, "a", encoding="utf-8") as f:
+                    f.write(f"{datetime.now().isoformat()}\n")
+                    f.write(f"Name: {name.strip()}\n")
+                    f.write(f"Email: {email.strip()}\n")
+                    f.write(f"Feedback: {feedback.strip()}\n")
+                    f.write("-" * 40 + "\n")
+                st.success("✅ Thank you for your feedback!")
             except Exception as e:
-                st.error(f"❌ Could not save feedback: {e}")
+                st.error(f"❌ Failed to save feedback: {e}")
         else:
-            st.warning("⚠️ All fields are required.")
+            st.warning("⚠️ Please fill all the fields before submitting.")
 
 st.markdown(" ", unsafe_allow_html=True)
