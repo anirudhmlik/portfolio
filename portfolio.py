@@ -213,9 +213,12 @@ With a solid foundation in scientific research and practical engineering, I help
     ]
 
     for job in experience:
-        with st.expander(f"{job['role']} – {job['company']} ({job['duration']})"):
-            details_html = "<br>".join([f"• {d}" for d in job["details"]])
-            st.markdown(f"<div style='font-size:17px; color:white;'>{details_html}</div>", unsafe_allow_html=True)
+    with st.expander(f"{job['role']} – {job['company']} ({job['duration']})", expanded=False):
+        st.markdown(f"""
+        <div style='font-size:18px; line-height:1.7; padding-left:10px; color:#f0f0f0;'>
+        {"<br>".join([f"• {detail}" for detail in job['details']])}
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -265,31 +268,51 @@ With a solid foundation in scientific research and practical engineering, I help
     st.header("🚀 Key Projects")
 
     projects = [
-        {"title": "RAG-based Alumni Chatbot",
-         "description": "Automated alumni interactions using Ollama, Mistral, LangChain, Django, ChromaDB (RAG + vector search).",
-         "tech": "GenAI, Django, Docker, ChromaDB"},
-        {"title": "Expense Tracker Bots",
-         "description": "Conversational bots for managing expenses via WhatsApp and Telegram.",
-         "tech": "Python, Flask, Telegram API"},
-        {"title": "AI-Powered Property Chatbot",
-         "description": "Real estate chatbot handling queries like '3BHK under ₹1.5Cr near Marina' using GPT-based NLP pipelines.",
-         "tech": "GPT APIs, Flask, Docker, CSV/JSON backend"},
-        {"title": "Electron ID at CERN",
-         "description": "Improved electron ID using ML techniques (PICNN, Optimal Transport) on ATLAS Monte Carlo datasets.",
-         "tech": "TensorFlow, ROOT, C++, Optimal Transport"},
-        {"title": "3D Schrödinger Equation Solver",
-         "description": "Numerical solver using CUDA acceleration, benchmarking GPU vs CPU performance.",
-         "tech": "NumPy, SciPy, CUDA"}
-    ]
+    {
+        "title": "RAG-based Alumni Chatbot",
+        "description": "Built a retrieval-augmented chatbot that uses Ollama + Mistral, LangChain, Django, and ChromaDB for alumni query resolution. Implemented semantic search with vector stores and a local LLM setup for privacy-focused deployment.",
+        "tech": "LangChain, ChromaDB, Django, Ollama, Docker"
+    },
+    {
+        "title": "AI-Powered Property Chatbot",
+        "description": "Developed a multilingual property chatbot that understands natural queries like '3BHK under ₹1.5Cr near Saket'. Extracted structured filters from free-text input using GPT-based intent parsing and filtered listings in real-time using a CSV/JSON backend.",
+        "tech": "Flask, GPT APIs, Docker, Telegram API, CSV/JSON"
+    },
+    {
+        "title": "Retail Sales Forecasting Pipeline",
+        "description": "Implemented a modular ML pipeline using Apache Airflow for ETL, MLflow for experiment tracking, and Flask for serving predictions. The complete pipeline was deployed on AWS EC2 to simulate a production-grade deployment stack.",
+        "tech": "Apache Airflow, MLflow, Flask, AWS EC2"
+    },
+    {
+        "title": "Electron Identification at CERN",
+        "description": "Designed machine learning models to classify electrons in simulated ATLAS data using PICNNs and applied statistical methods like sPlot and Tag-and-Probe. Matched fast and full simulations using Optimal Transport theory.",
+        "tech": "TensorFlow, ROOT, Geant4, ATLFAST3, Python"
+    },
+    {
+        "title": "3D Schrödinger Equation Solver",
+        "description": "Built a numerical solver for the time-independent 3D Schrödinger equation. Implemented parallelization using CUDA and benchmarked performance differences between GPU and CPU computation.",
+        "tech": "NumPy, SciPy, CUDA, C++"
+    },
+    {
+        "title": "CO₂ Emission Estimator Web App",
+        "description": "Developed a web-based CO₂ emission calculator that takes user inputs to predict emission levels. The model was tracked using MLflow and deployed on AWS EC2 via Flask APIs with a simple interactive frontend.",
+        "tech": "Flask, MLflow, AWS EC2, Scikit-learn"
+    },
+    {
+        "title": "YouTube Comment Sentiment Classifier",
+        "description": "Built a sentiment analysis pipeline for YouTube video comments using Transformer-based models. Classified user sentiment for insights into video reception trends across different content types.",
+        "tech": "Transformers, Hugging Face, Pandas, PyTorch"
+    }
+]
 
     for project in projects:
-        st.markdown(f"""
-        <div style='margin-bottom: 20px;'>
-        <h3 style='color:#007acc;'>{project['title']}</h3>
-        <p style='font-size:16px; color:white;'>{project['description']}</p>
-        <p style='font-size:15px; font-style:italic; color:#888;'>Tech Used: {project['tech']}</p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown(f"""
+    <div style='margin-bottom: 20px;'>
+    <h3 style='color:#007acc;'>{project['title']}</h3>
+    <p style='font-size:16px; color:white;'>{project['description']}</p>
+    <p style='font-size:15px; font-style:italic; color:#888;'>Tech Used: {project['tech']}</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("---")
 
