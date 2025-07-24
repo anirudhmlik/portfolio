@@ -213,12 +213,12 @@ With a solid foundation in scientific research and practical engineering, I help
     ]
 
     for job in experience:
-    with st.expander(f"{job['role']} – {job['company']} ({job['duration']})", expanded=False):
-        st.markdown(f"""
-        <div style='font-size:18px; line-height:1.7; padding-left:10px; color:#f0f0f0;'>
-        {"<br>".join([f"• {detail}" for detail in job['details']])}
-        </div>
-        """, unsafe_allow_html=True)
+        with st.expander(f"{job['role']} – {job['company']} ({job['duration']})", expanded=False):
+            st.markdown(f"""
+            <div style='font-size:18px; line-height:1.7; padding-left:10px; color:#f0f0f0;'>
+            {"<br>".join([f"• {detail}" for detail in job['details']])}
+            </div>
+            """, unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -306,13 +306,13 @@ With a solid foundation in scientific research and practical engineering, I help
 ]
 
     for project in projects:
-    st.markdown(f"""
-    <div style='margin-bottom: 20px;'>
-    <h3 style='color:#007acc;'>{project['title']}</h3>
-    <p style='font-size:16px; color:white;'>{project['description']}</p>
-    <p style='font-size:15px; font-style:italic; color:#888;'>Tech Used: {project['tech']}</p>
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown(f"""
+        <div style='margin-bottom: 20px;'>
+        <h3 style='color:#007acc;'>{project['title']}</h3>
+        <p style='font-size:16px; color:white;'>{project['description']}</p>
+        <p style='font-size:15px; font-style:italic; color:#888;'>Tech Used: {project['tech']}</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
