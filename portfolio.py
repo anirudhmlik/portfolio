@@ -188,100 +188,50 @@ With a solid foundation in scientific research and practical engineering, I help
     st.markdown("---")
 
 # Experience
-    st.markdown('<div id="experience"></div>', unsafe_allow_html=True)
+    st.markdown("---")
+    st.markdown("<div id='experience'></div>", unsafe_allow_html=True)
     st.header("💼 Professional Experience")
+
     experience = [
-        {"role": "Research Associate", "company": "IIT Delhi", "duration": "04/2025 – Present",
-         "details": [
-             "Simulated Higgs boson production via gg→ H → τ+τ− using MadGraph5 + Pythia8 + Delphes",
-             "Conducted EDA on CMS MiniAOD datasets for gen vs reco tau leptons",
-             "Optimized statistical cuts and applied data mining techniques to improve signal purity",
-             "Produced reproducible analysis using Jupyter, ROOT, and Git-based pipelines",
-             "Collaborated with 3 physicists and presented at weekly lab reviews"
-         ]},
-        {"role": "AI/ML Specialist", "company": "Imagenators", "duration": "05/2025 – 07/2025",
-         "details": [
-             "Built and deployed a containerized RAG system using FastAPI, LangChain, FAISS, and Gemini 1.5",
-             "Developed REST endpoints for PDF ingestion, data wrangling, and real-time LLM-based QA",
-             "Benchmarked GenAI vs traditional NLP on retrieval accuracy",
-             "Managed PostgreSQL pipelines with Docker Compose and CI tests"
-         ]},
-        {"role": "Trainee Developer", "company": "Dev Group", "duration": "02/2025 – 05/2025",
-         "details": [
-             "Designed CO₂ prediction model using regression with Flask + MLflow",
-             "Conducted EDA, built dashboards, and contributed to internal analytics tools with REST APIs"
-         ]},
-        {"role": "Graduate Researcher", "company": "University of Sheffield", "duration": "09/2023 – 09/2024",
-         "details": [
-             "Developed PICNN classifiers for Z → e+e− using ATLAS MC data",
-             "Used Optimal Transport to match AF3 and Geant4 simulations"
-         ]},
-        {"role": "Undergraduate Researcher", "company": "University of Delhi", "duration": "09/2022 – 05/2023",
-         "details": [
-             "Simulated SPR using DDSCAT and analyzed dielectric properties of AgNO3 nanomaterials"
-         ]},
-    ]
-    for job in experience:
-        with st.expander(f"{job['role']} – {job['company']} ({job['duration']})"):
-            st.markdown("<div style='font-size:16px; line-height:1.6;'>" + "<br>".join([f"• {d}" for d in job['details']]) + "</div>", unsafe_allow_html=True)
+    {
+        "title": "AI/ML Specialist – Imagenators, Noida (05/2025 – 07/2025)",
+        "description": """Built and deployed a containerized RAG system using FastAPI, LangChain, FAISS, and Gemini 1.5.
+Developed REST endpoints for PDF ingestion, data wrangling, and real-time LLM-based QA.
+Benchmarked GenAI vs traditional NLP on retrieval accuracy.
+Managed PostgreSQL pipelines with Docker Compose and CI tests."""
+    },
+    {
+        "title": "Trainee Developer – Dev Group, New Delhi (02/2025 – 05/2025)",
+        "description": """Designed CO₂ prediction model using regression with Flask + MLflow.
+Conducted EDA, built dashboards, and contributed to internal analytics tools with REST APIs."""
+    },
+    {
+        "title": "Research Associate – IIT Delhi (04/2025 – Present)",
+        "description": """Simulated Higgs boson production via gg→ H → τ+τ− using MadGraph5 + Pythia8 + Delphes.
+Conducted EDA on CMS MiniAOD datasets for gen vs reco tau leptons.
+Optimized statistical cuts and applied data mining techniques to improve signal purity.
+Produced reproducible analysis using Jupyter, ROOT, and Git-based pipelines."""
+    },
+    {
+        "title": "Graduate Researcher – University of Sheffield (09/2023 – 09/2024)",
+        "description": """Developed PICNN classifiers for Z → e+e− using ATLAS MC data.
+Used Optimal Transport to match AF3 and Geant4 simulations."""
+    },
+    {
+        "title": "Undergraduate Researcher – University of Delhi (09/2022 – 05/2023)",
+        "description": """Simulated SPR using DDSCAT and analyzed dielectric properties of AgNO₃ nanomaterials."""
+    },
+]
+
+    for exp in experience:
+        st.markdown(f"""
+    <div style='margin-bottom: 25px;'>
+        <h3 style='color:#007acc;'>{exp['title']}</h3>
+        <p style='font-size:16px; color:white;'>{exp['description'].replace('\n', '<br>')}</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("---")
-    #Projects
-    st.markdown('<div id="projects"></div>', unsafe_allow_html=True)
-    st.header("🚀 Self-Initiated Projects")
-    projects = [
-        ("Asteroid Discovery with NASA (2021)", "Participated in International Astronomical Search Collaboration; discovered a provisional asteroid."),
-        ("Hohmann Transfer Orbit Simulator (2021)", "Built GUI for simulating orbital transitions using minimal energy."),
-        ("Fourier Drawing using Rotating Vectors (2022)", "Visualized Fourier Series via animated rotating vectors."),
-        ("Retail Sales Forecasting Pipeline (2023)", "Developed Airflow + Flask + MLFlow pipeline, boosting forecast accuracy by 20%"),
-        ("Fraud Detection MLOps (2024)", "Built scalable ensemble-based fraud detection system using Apache Spark and AWS Lambda.")
-    ]
-    for title, desc in projects:
-        with st.expander(title):
-            st.markdown(f"- {desc}")
-
-    st.markdown("---")
-
-    
-    # Education
-    st.markdown('<div id="education"></div>', unsafe_allow_html=True)
-    st.header("🎓 Education")
-    st.markdown("""
-<div style='font-size:17px; color:white;'>
-<ul>
-<li><b>MSc in Particle Physics</b>, University of Sheffield, UK (2023–2024) — First Class</li>
-<li><b>BSc in Physics, Math & Computer Science</b>, University of Delhi, India (2020–2023) — Distinction</li>
-</ul>
-</div>
-""", unsafe_allow_html=True)
-
-    st.header("📜 Certifications")
-    st.markdown("""
-<div style='font-size:17px; color:white;'>
-<ul>
-<li>Data Science, ML, DL, NLP – Krish AI Technologies (2025)</li>
-<li>SQL & Analytics – Udemy (2025)</li>
-<li>MLOps Bootcamp – Udemy (2024)</li>
-<li>Python for Data Analytics – Learntube.ai (2024)</li>
-</ul>
-</div>
-""", unsafe_allow_html=True)
-
-    st.header("📝 MSc Dissertation Summary")
-    st.markdown("""
-<div style='font-size:17px; color:white;'>
-<b>Electron Identification Using Machine Learning at CERN ATLAS Detector</b><br><br>
-<ul>
-<li>Applied ML to enhance electron identification efficiency using ATLAS Monte Carlo datasets.</li>
-<li>Used Optimal Transport, PICNN, Tag-and-Probe, and sPlot techniques.</li>
-<li>Technologies: TensorFlow, ROOT, Geant4, ATLFAST3, Python, C++.</li>
-</ul>
-</div>
-""", unsafe_allow_html=True)
-
-    st.markdown("---")
-
-
 
     # Projects
     st.markdown('<div id="projects"></div>', unsafe_allow_html=True)
@@ -333,6 +283,80 @@ With a solid foundation in scientific research and practical engineering, I help
         <p style='font-size:15px; font-style:italic; color:#888;'>Tech Used: {project['tech']}</p>
         </div>
         """, unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    st.markdown("<div id='self_projects'></div>", unsafe_allow_html=True)
+    st.header("🚀 Self-Initiated Projects")
+
+    projects = [
+    {
+        "title": "Asteroid Discovery with NASA (2021)",
+        "description": "Participated in International Astronomical Search Collaboration; discovered a provisional asteroid (awaiting MPC confirmation)."
+    },
+    {
+        "title": "Hohmann Transfer Orbit Simulator (2021)",
+        "description": "Built GUI for simulating orbital transitions using minimal energy."
+    },
+    {
+        "title": "Fourier Drawing using Rotating Vectors (2022)",
+        "description": "Visualized Fourier Series via animated rotating vectors."
+    },
+    {
+        "title": "Retail Sales Forecasting Pipeline (2023)",
+        "description": "Developed Airflow + Flask + MLFlow pipeline, boosting forecast accuracy by 20%."
+    },
+    {
+        "title": "Fraud Detection MLOps System (2024)",
+        "description": "Built scalable ensemble-based fraud detection system using Apache Spark and AWS Lambda."
+    }
+]
+
+    for proj in projects:
+        st.markdown(f"""
+    <div style='margin-bottom: 25px;'>
+        <h3 style='color:#00b894;'>{proj['title']}</h3>
+        <p style='font-size:16px; color:white;'>{proj['description']}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    
+    
+    # Education
+    st.markdown('<div id="education"></div>', unsafe_allow_html=True)
+    st.header("🎓 Education")
+    st.markdown("""
+<div style='font-size:17px; color:white;'>
+<ul>
+<li><b>MSc in Particle Physics</b>, University of Sheffield, UK (2023–2024) — First Class</li>
+<li><b>BSc in Physics, Math & Computer Science</b>, University of Delhi, India (2020–2023) — Distinction</li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
+
+    st.header("📜 Certifications")
+    st.markdown("""
+<div style='font-size:17px; color:white;'>
+<ul>
+<li>Data Science, ML, DL, NLP – Krish AI Technologies (2025)</li>
+<li>SQL & Analytics – Udemy (2025)</li>
+<li>MLOps Bootcamp – Udemy (2024)</li>
+<li>Python for Data Analytics – Learntube.ai (2024)</li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
+
+    st.header("📝 MSc Dissertation Summary")
+    st.markdown("""
+<div style='font-size:17px; color:white;'>
+<b>Electron Identification Using Machine Learning at CERN ATLAS Detector</b><br><br>
+<ul>
+<li>Applied ML to enhance electron identification efficiency using ATLAS Monte Carlo datasets.</li>
+<li>Used Optimal Transport, PICNN, Tag-and-Probe, and sPlot techniques.</li>
+<li>Technologies: TensorFlow, ROOT, Geant4, ATLFAST3, Python, C++.</li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
 
     st.markdown("---")
 
