@@ -166,59 +166,79 @@ With a solid foundation in scientific research and practical engineering, I help
     st.markdown("---")
 
 
-    # Skills
-    st.markdown('<div id="skills"></div>', unsafe_allow_html=True)
-    st.header("📊 Skills Overview")
+# Skills
+st.markdown('<div id="skills"></div>', unsafe_allow_html=True)
+st.header("📊 Skills Overview")
 
-    skill_groups = {
-        "Programming Languages": ["Python", "R", "SQL", "C++", "CUDA", "Bash"],
-        "ML & Deep Learning Frameworks": ["TensorFlow", "PyTorch", "Scikit-learn", "Hugging Face Transformers"],
-        "MLOps & Cloud Deployment": ["MLflow", "Apache Airflow", "Docker", "Kubernetes", "AWS EC2", "AWS Lambda"],
-        "Data Tools": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "REST APIs"],
-        "Databases": ["MongoDB", "PostgreSQL", "MySQL", "Oracle"],
-        "Scientific & Physics Tools": ["ROOT", "Geant4", "MadGraph", "Pythia8", "DDSCAT", "Optimal Transport"]
-    }
+skill_groups = {
+    "Programming Languages": ["Python", "SQL", "C++", "Bash"],
+    "Machine Learning & Deep Learning": ["Scikit-learn", "TensorFlow", "PyTorch"],
+    "MLOps & Deployment": ["MLflow", "Apache Airflow", "Docker", "Kubernetes", "AWS EC2", "AWS Lambda"],
+    "Data Engineering & Tools": ["Pandas", "NumPy", "PostgreSQL", "MongoDB", "Apache Spark", "Big Data Analytics"],
+    "Web & APIs": ["FastAPI", "Flask", "Django", "REST APIs"],
+    "NLP & LLMs": ["LangChain", "Ollama", "ChromaDB", "Hugging Face Transformers"],
+    "Visualization": ["Matplotlib", "Seaborn"],
+    "Physics & Simulation Tools": ["ROOT", "Geant4", "MadGraph5", "DDSCAT", "Optimal Transport"]
+}
 
-    for category, skills in skill_groups.items():
-        st.subheader(f"🔸 {category}")
-        st.markdown(f"<div style='font-size:20px; color:#4CAF50;'>{' — '.join(skills)}</div>", unsafe_allow_html=True)
-        st.markdown("---")
+for section, items in skill_groups.items():
+    st.subheader(f"🔹 {section}")
+    st.markdown(f"<div style='font-size:18px; color:#4CAF50;'>" + " — ".join(items) + "</div>", unsafe_allow_html=True)
 
-    # Experience
+st.markdown("---")
+
+# Experience
     st.markdown('<div id="experience"></div>', unsafe_allow_html=True)
     st.header("💼 Professional Experience")
-
     experience = [
-        {"role": "AI/ML Specialist", "company": "Imagenators, Noida", "duration": "05/2025 – Present",
-         "details": [
-             "Developed alumni chatbot using RAG pipelines (Ollama, LangChain, ChromaDB).",
-             "Benchmarked GenAI vs traditional NLP pipelines for customer service solutions.",
-             "Containerized ML pipelines using Docker for scalable deployments."
-         ]},
-        {"role": "Trainee Developer", "company": "Dev Group, New Delhi", "duration": "02/2025 – 05/2025",
-         "details": [
-             "Created CO₂ emission estimator and deployed it on AWS EC2 using Flask APIs and MLflow.",
-             "Prototyped AI tools integrating REST APIs and LangChain."
-         ]},
         {"role": "Research Associate", "company": "IIT Delhi", "duration": "04/2025 – Present",
          "details": [
-             "Simulated Higgs boson production using MadGraph, Pythia8, and Delphes.",
-             "Optimized physics analysis using ROOT and Python."
+             "Simulated Higgs boson production via gg→ H → τ+τ− using MadGraph5 + Pythia8 + Delphes",
+             "Conducted EDA on CMS MiniAOD datasets for gen vs reco tau leptons",
+             "Optimized statistical cuts and applied data mining techniques to improve signal purity",
+             "Produced reproducible analysis using Jupyter, ROOT, and Git-based pipelines",
+             "Collaborated with 3 physicists and presented at weekly lab reviews"
+         ]},
+        {"role": "AI/ML Specialist", "company": "Imagenators", "duration": "05/2025 – 07/2025",
+         "details": [
+             "Built and deployed a containerized RAG system using FastAPI, LangChain, FAISS, and Gemini 1.5",
+             "Developed REST endpoints for PDF ingestion, data wrangling, and real-time LLM-based QA",
+             "Benchmarked GenAI vs traditional NLP on retrieval accuracy",
+             "Managed PostgreSQL pipelines with Docker Compose and CI tests"
+         ]},
+        {"role": "Trainee Developer", "company": "Dev Group", "duration": "02/2025 – 05/2025",
+         "details": [
+             "Designed CO₂ prediction model using regression with Flask + MLflow",
+             "Conducted EDA, built dashboards, and contributed to internal analytics tools with REST APIs"
          ]},
         {"role": "Graduate Researcher", "company": "University of Sheffield", "duration": "09/2023 – 09/2024",
          "details": [
-             "Developed ML models to improve electron identification for CERN ATLAS experiment.",
-             "Worked on Optimal Transport techniques and statistical methods (sPlot, Tag-and-Probe)."
-         ]}
+             "Developed PICNN classifiers for Z → e+e− using ATLAS MC data",
+             "Used Optimal Transport to match AF3 and Geant4 simulations"
+         ]},
+        {"role": "Undergraduate Researcher", "company": "University of Delhi", "duration": "09/2022 – 05/2023",
+         "details": [
+             "Simulated SPR using DDSCAT and analyzed dielectric properties of AgNO3 nanomaterials"
+         ]},
     ]
-
     for job in experience:
-        with st.expander(f"{job['role']} – {job['company']} ({job['duration']})", expanded=False):
-            st.markdown(f"""
-            <div style='font-size:18px; line-height:1.7; padding-left:10px; color:#f0f0f0;'>
-            {"<br>".join([f"• {detail}" for detail in job['details']])}
-            </div>
-            """, unsafe_allow_html=True)
+        with st.expander(f"{job['role']} – {job['company']} ({job['duration']})"):
+            st.markdown("<div style='font-size:16px; line-height:1.6;'>" + "<br>".join([f"• {d}" for d in job['details']]) + "</div>", unsafe_allow_html=True)
+
+    st.markdown("---")
+    #Projects
+    st.markdown('<div id="projects"></div>', unsafe_allow_html=True)
+    st.header("🚀 Self-Initiated Projects")
+    projects = [
+        ("Asteroid Discovery with NASA (2021)", "Participated in International Astronomical Search Collaboration; discovered a provisional asteroid."),
+        ("Hohmann Transfer Orbit Simulator (2021)", "Built GUI for simulating orbital transitions using minimal energy."),
+        ("Fourier Drawing using Rotating Vectors (2022)", "Visualized Fourier Series via animated rotating vectors."),
+        ("Retail Sales Forecasting Pipeline (2023)", "Developed Airflow + Flask + MLFlow pipeline, boosting forecast accuracy by 20%"),
+        ("Fraud Detection MLOps (2024)", "Built scalable ensemble-based fraud detection system using Apache Spark and AWS Lambda.")
+    ]
+    for title, desc in projects:
+        with st.expander(title):
+            st.markdown(f"- {desc}")
 
     st.markdown("---")
 
