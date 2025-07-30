@@ -166,26 +166,26 @@ With a solid foundation in scientific research and practical engineering, I help
     st.markdown("---")
 
 
-# Skills
-st.markdown('<div id="skills"></div>', unsafe_allow_html=True)
-st.header("📊 Skills Overview")
+    # Skills
+    st.markdown('<div id="skills"></div>', unsafe_allow_html=True)
+    st.header("📊 Skills Overview")
 
-skill_groups = {
-    "Programming Languages": ["Python", "SQL", "C++", "Bash"],
-    "Machine Learning & Deep Learning": ["Scikit-learn", "TensorFlow", "PyTorch"],
-    "MLOps & Deployment": ["MLflow", "Apache Airflow", "Docker", "Kubernetes", "AWS EC2", "AWS Lambda"],
-    "Data Engineering & Tools": ["Pandas", "NumPy", "PostgreSQL", "MongoDB", "Apache Spark", "Big Data Analytics"],
-    "Web & APIs": ["FastAPI", "Flask", "Django", "REST APIs"],
-    "NLP & LLMs": ["LangChain", "Ollama", "ChromaDB", "Hugging Face Transformers"],
-    "Visualization": ["Matplotlib", "Seaborn"],
-    "Physics & Simulation Tools": ["ROOT", "Geant4", "MadGraph5", "DDSCAT", "Optimal Transport"]
-}
+    skill_groups = {
+        "Programming Languages": ["Python", "SQL", "C++", "Bash"],
+        "Machine Learning & Deep Learning": ["Scikit-learn", "TensorFlow", "PyTorch"],
+        "MLOps & Deployment": ["MLflow", "Apache Airflow", "Docker", "Kubernetes", "AWS EC2", "AWS Lambda"],
+        "Data Engineering & Tools": ["Pandas", "NumPy", "PostgreSQL", "MongoDB", "Apache Spark", "Big Data Analytics"],
+        "Web & APIs": ["FastAPI", "Flask", "Django", "REST APIs"],
+        "NLP & LLMs": ["LangChain", "Ollama", "ChromaDB", "Hugging Face Transformers"],
+        "Visualization": ["Matplotlib", "Seaborn"],
+        "Physics & Simulation Tools": ["ROOT", "Geant4", "MadGraph5", "DDSCAT", "Optimal Transport"]
+        }
 
-for section, items in skill_groups.items():
-    st.subheader(f"🔹 {section}")
-    st.markdown(f"<div style='font-size:18px; color:#4CAF50;'>" + " — ".join(items) + "</div>", unsafe_allow_html=True)
+    for section, items in skill_groups.items():
+        st.subheader(f"🔹 {section}")
+        st.markdown(f"<div style='font-size:18px; color:#4CAF50;'>" + " — ".join(items) + "</div>", unsafe_allow_html=True)
 
-st.markdown("---")
+    st.markdown("---")
 
 # Experience
     st.markdown('<div id="experience"></div>', unsafe_allow_html=True)
