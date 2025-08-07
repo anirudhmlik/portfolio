@@ -224,12 +224,16 @@ Used Optimal Transport to match AF3 and Geant4 simulations."""
 ]
 
     for exp in experience:
-        st.markdown(f"""
-    <div style='margin-bottom: 25px;'>
-        <h3 style='color:#007acc;'>{exp['title']}</h3>
-        <p style='font-size:16px; color:white;'>{exp['description'].replace('\n', '<br>')}</p>
-    </div>
-    """, unsafe_allow_html=True)
+    desc_html = exp["description"].replace("\n", "<br>")
+    st.markdown(
+        f"""
+        <div style='margin-bottom: 25px;'>
+            <h3 style='color:#007acc;'>{exp['title']}</h3>
+            <p style='font-size:16px; color:white;'>{desc_html}</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     st.markdown("---")
 
