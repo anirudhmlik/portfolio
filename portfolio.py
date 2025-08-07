@@ -238,6 +238,13 @@ Used Optimal Transport to match AF3 and Geant4 simulations."""
     st.header("🚀 Key Projects")
 
     projects = [
+        {
+    "title": "Conversational Voice Assistant (Gemini Live API, 2025)",
+    "description": """Cloned functionality of Revolt Motors’ Rev chatbot using Gemini's native audio dialog model.
+Enabled smooth voice interruptions, real-time streaming responses, and server-to-server architecture using Node.js and Express.
+Handled multilingual voice interactions with sub-2s latency. Submitted working demo with public video + GitHub source.""",
+    "tech": "Gemini Live API, Node.js, Express, WebSockets, HTML5 Audio"
+}
     {
         "title": "RAG-based Alumni Chatbot",
         "description": "Built a retrieval-augmented chatbot that uses Ollama + Mistral, LangChain, Django, and ChromaDB for alumni query resolution. Implemented semantic search with vector stores and a local LLM setup for privacy-focused deployment.",
