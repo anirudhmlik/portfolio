@@ -176,7 +176,7 @@ With a solid foundation in scientific research and practical engineering, I help
         "MLOps & Deployment": ["MLflow", "Apache Airflow", "Docker", "Kubernetes", "AWS EC2", "AWS Lambda"],
         "Data Engineering & Tools": ["Pandas", "NumPy", "PostgreSQL", "MongoDB", "Apache Spark", "Big Data Analytics"],
         "Web & APIs": ["FastAPI", "Flask", "Django", "REST APIs"],
-        "NLP & LLMs": ["LangChain", "Ollama", "ChromaDB", "Hugging Face Transformers"],
+        "NLP & LLMs": ["LangChain", "Ollama", "ChromaDB", "Hugging Face Transformers","spaCy", "Haystack", "OpenAI APIs", "Gemini Live API"],
         "Visualization": ["Matplotlib", "Seaborn"],
         "Physics & Simulation Tools": ["ROOT", "Geant4", "MadGraph5", "DDSCAT", "Optimal Transport"]
         }
@@ -194,6 +194,13 @@ With a solid foundation in scientific research and practical engineering, I help
 
     experience = [
     {
+        "title": "Research Associate – IIT Delhi (04/2025 – Present)",
+        "description": """Simulated Higgs boson production via gg→ H → τ+τ− using MadGraph5 + Pythia8 + Delphes.
+Conducted EDA on CMS MiniAOD datasets for gen vs reco tau leptons.
+Optimized statistical cuts and applied data mining techniques to improve signal purity.
+Produced reproducible analysis using Jupyter, ROOT, and Git-based pipelines."""
+    },        
+        {
         "title": "AI/ML Specialist – Imagenators, Noida (05/2025 – 07/2025)",
         "description": """Built and deployed a containerized RAG system using FastAPI, LangChain, FAISS, and Gemini 1.5.
 Developed REST endpoints for PDF ingestion, data wrangling, and real-time LLM-based QA.
@@ -204,13 +211,6 @@ Managed PostgreSQL pipelines with Docker Compose and CI tests."""
         "title": "Trainee Developer – Dev Group, New Delhi (02/2025 – 05/2025)",
         "description": """Designed CO₂ prediction model using regression with Flask + MLflow.
 Conducted EDA, built dashboards, and contributed to internal analytics tools with REST APIs."""
-    },
-    {
-        "title": "Research Associate – IIT Delhi (04/2025 – Present)",
-        "description": """Simulated Higgs boson production via gg→ H → τ+τ− using MadGraph5 + Pythia8 + Delphes.
-Conducted EDA on CMS MiniAOD datasets for gen vs reco tau leptons.
-Optimized statistical cuts and applied data mining techniques to improve signal purity.
-Produced reproducible analysis using Jupyter, ROOT, and Git-based pipelines."""
     },
     {
         "title": "Graduate Researcher – University of Sheffield (09/2023 – 09/2024)",
@@ -244,7 +244,7 @@ Used Optimal Transport to match AF3 and Geant4 simulations."""
 Enabled smooth voice interruptions, real-time streaming responses, and server-to-server architecture using Node.js and Express.
 Handled multilingual voice interactions with sub-2s latency. Submitted working demo with public video + GitHub source.""",
     "tech": "Gemini Live API, Node.js, Express, WebSockets, HTML5 Audio"
-}
+},
     {
         "title": "RAG-based Alumni Chatbot",
         "description": "Built a retrieval-augmented chatbot that uses Ollama + Mistral, LangChain, Django, and ChromaDB for alumni query resolution. Implemented semantic search with vector stores and a local LLM setup for privacy-focused deployment.",
