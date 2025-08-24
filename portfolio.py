@@ -88,9 +88,9 @@ col_main, col_profile = st.columns([3, 1], gap="large")
 
 with col_profile:
     st.image("photo.png", caption="Anirudh Malik", width=220)
-    st.markdown("**📍 Location:** Delhi, India")
-    st.write("**📞 Contact:** +91 9058176356")
-    st.write("**✉️ Email:** anirudhforjobs@gmail.com")
+    st.markdown("<b>📍 Location:</b> Delhi, India", unsafe_allow_html=True)
+    st.markdown("<b>📞 Contact:</b> +91 9058176356", unsafe_allow_html=True)
+    st.markdown("<b>✉️ Email:</b> anirudhforjobs@gmail.com", unsafe_allow_html=True)
     st.markdown("[💼 LinkedIn](https://linkedin.com/in/whoisaphysicist/)")
     st.markdown("[🐙 GitHub](https://github.com/anirudhmlik)")
 
@@ -115,7 +115,7 @@ with col_profile:
 
     st.subheader("🎖️ Hobbies")
     st.write("""
-- Basketball 🏀
+- Basketball 🏀  
 - Physics research as a passion project
 """)
 
@@ -132,11 +132,11 @@ with col_main:
     with col_intro:
         st.title("Anirudh Malik")
         st.subheader("Data Scientist | AI/ML Engineer | Scientific Software Engineer")
-    st.write("""
-I’m **Anirudh Malik** — a Data Scientist and AI/ML Software Engineer passionate about **bridging research with real-world AI applications**.  
-I specialize in **predictive modeling, generative AI, anomaly detection, and scalable ML pipelines**, with proven experience across research and industry.  
-With a strong background in **particle physics research** and **AI engineering**, I deliver intelligent, production-ready solutions.
-""")
+    st.markdown("""
+I’m <b>Anirudh Malik</b> — a Data Scientist and AI/ML Software Engineer passionate about <b>bridging research with real-world AI applications</b>.  
+I specialize in <b>predictive modeling, generative AI, anomaly detection, and scalable ML pipelines</b>, with proven experience across research and industry.  
+With a strong background in <b>particle physics research</b> and <b>AI engineering</b>, I deliver intelligent, production-ready solutions.
+""", unsafe_allow_html=True)
     st.markdown("---")
 
     # Skills
@@ -167,55 +167,54 @@ With a strong background in **particle physics research** and **AI engineering**
     experience = [
         {
             "title": "AI - Software Engineer – Dextra Labs (Aug 2025 – Present)",
-            "description": """Working on **Instavaluate**, an AI-powered valuation platform for auditors & customers.
-- Automated Excel-to-template parsing with NLP.
-- Built AI-powered chatbot for onboarding & valuation support.
-- Developed narrative generation tools for financial reports.
-- Implemented AI-driven forecasting models using market data.
+            "description": """Working on an <b>AI-powered valuation platform</b> for auditors & customers.<br>
+- Automated <b>Excel-to-template parsing</b> with NLP.<br>
+- Built <b>AI-powered chatbot</b> for onboarding & valuation support.<br>
+- Developed <b>narrative generation tools</b> for financial reports.<br>
+- Implemented <b>AI-driven forecasting models</b> using market data.
 """
         },
         {
             "title": "Research Associate – IIT Delhi (Apr 2025 – Present)",
-            "description": """Developing **hybrid anomaly detection (VAE + FROCC)** for unsupervised jet tagging.  
-Simulated **gg → H → τ+τ−** using MadGraph5 + Pythia8 + Delphes.  
-Conducted EDA on CMS MiniAOD datasets for tau leptons.  
-Designed latent-space anomaly scores for model-independent new physics searches.
+            "description": """Developing <b>hybrid anomaly detection (VAE + FROCC)</b> for unsupervised jet tagging.<br>
+Simulated <b>gg → H → τ+τ−</b> using MadGraph5 + Pythia8 + Delphes.<br>
+Conducted <b>EDA</b> on CMS MiniAOD datasets for tau leptons.<br>
+Designed <b>latent-space anomaly scores</b> for model-independent new physics searches.
 """
         },
         {
             "title": "AI/ML Specialist – Imagenators (May 2025 – Jul 2025)",
-            "description": """Built and deployed containerized **RAG systems** using FastAPI, LangChain, FAISS, Gemini.  
-Benchmarked GenAI vs traditional NLP.  
-Optimized Revolt Motors’ **voice assistant** with Gemini's audio-dialog model.
+            "description": """Built and deployed containerized <b>RAG systems</b> using FastAPI, LangChain, FAISS, Gemini.<br>
+Benchmarked <b>GenAI vs traditional NLP</b>.<br>
+Optimized <b>Revolt Motors’ voice assistant</b> with Gemini's audio-dialog model.
 """
         },
         {
             "title": "Trainee Developer – Dev Group (Feb 2025 – May 2025)",
-            "description": """Developed **CO₂ emissions prediction models** using Flask + MLflow.  
-Created dashboards and Python REST APIs for analytics tools.
+            "description": """Developed <b>CO₂ emissions prediction models</b> using Flask + MLflow.<br>
+Created dashboards and <b>Python REST APIs</b> for analytics tools.
 """
         },
         {
             "title": "Graduate Researcher – Univ. of Sheffield (Sep 2023 – Sep 2024)",
-            "description": """Built **PICNN classifiers** for Z → e+e− using ATLAS MC data.  
-Applied **Optimal Transport** to match AF3 & Geant4 simulations.
+            "description": """Built <b>PICNN classifiers</b> for Z → e+e− using ATLAS MC data.<br>
+Applied <b>Optimal Transport</b> to match AF3 & Geant4 simulations.
 """
         },
         {
             "title": "Undergraduate Researcher – Univ. of Delhi (Sep 2022 – May 2023)",
-            "description": """Simulated **surface plasmon resonance** via DDSCAT.  
-Analyzed dielectric properties of AgNO₃ nanomaterials.
+            "description": """Simulated <b>surface plasmon resonance</b> via DDSCAT.<br>
+Analyzed <b>dielectric properties</b> of AgNO₃ nanomaterials.
 """
         }
     ]
 
     for exp in experience:
-        desc_html = exp["description"].replace("\n", "<br>")
         st.markdown(
         f"""
         <div style='margin-bottom: 25px;'>
             <h3 style='color:#007acc;'>{exp['title']}</h3>
-            <p style='font-size:16px; color:white;'>{desc_html}</p>
+            <p style='font-size:16px; color:white;'>{exp['description']}</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -240,8 +239,8 @@ Analyzed dielectric properties of AgNO₃ nanomaterials.
     st.markdown("""
 <div style='font-size:17px; color:white;'>
 <ul>
-<li>Data Science, ML, DL, NLP – Krish AI Technologies (2025)</li>
-<li>Mastering SQL & Analytics – Udemy (2025)</li>
+<li><b>Data Science, ML, DL, NLP</b> – Krish AI Technologies (2025)</li>
+<li><b>Mastering SQL & Analytics</b> – Udemy (2025)</li>
 </ul>
 </div>
 """, unsafe_allow_html=True)
@@ -251,9 +250,9 @@ Analyzed dielectric properties of AgNO₃ nanomaterials.
 # Contact
 st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
 st.header("📬 Contact & Feedback")
-st.write("**📞 Contact:** +91 9058176356")
-st.write("**✉️ Email:** anirudhforjobs@gmail.com")
+st.markdown("<b>📞 Contact:</b> +91 9058176356", unsafe_allow_html=True)
+st.markdown("<b>✉️ Email:</b> anirudhforjobs@gmail.com", unsafe_allow_html=True)
 st.markdown("[💼 LinkedIn](https://linkedin.com/in/whoisaphysicist/)")
 st.markdown("[🐙 GitHub](https://github.com/anirudhmlik)")
 
-st.markdown(" MSc | AI/ML Engineer | Anirudh Malik | Data Scientist | Immediately Available ", unsafe_allow_html=True)
+st.markdown(" MSc | <b>AI/ML Engineer</b> | Anirudh Malik | <b>Data Scientist</b> | <b>Immediately Available</b> ", unsafe_allow_html=True)
