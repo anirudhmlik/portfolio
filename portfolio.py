@@ -83,7 +83,6 @@ window.onscroll = function() {
 </script>
 """, unsafe_allow_html=True)
 
-
 # Sidebar
 col_main, col_profile = st.columns([3, 1], gap="large")
 
@@ -91,7 +90,7 @@ with col_profile:
     st.image("photo.png", caption="Anirudh Malik", width=220)
     st.markdown("**📍 Location:** Delhi, India")
     st.write("**📞 Contact:** +91 9058176356")
-    st.write("**✉️ Email:** anirudhchoudhary308@gmail.com")
+    st.write("**✉️ Email:** anirudhforjobs@gmail.com")
     st.markdown("[💼 LinkedIn](https://linkedin.com/in/whoisaphysicist/)")
     st.markdown("[🐙 GitHub](https://github.com/anirudhmlik)")
 
@@ -101,53 +100,29 @@ with col_profile:
     except FileNotFoundError:
         st.warning("CV file not found.")
 
-    try:
-        with open("230224041_MSc_Particle_Physics_dissertation.pdf", "rb") as thesis_file:
-            st.download_button("📘 Download MSc Thesis", thesis_file, file_name="Anirudh_Malik_MSc_Thesis.pdf")
-    except FileNotFoundError:
-        st.warning("Thesis file not found.")
-
-    # Inside col_profile or under Education section
-    try:
-        with open("Award Certificate.pdf", "rb") as msc_file:
-            st.download_button("📜 Download MSc Degree Certificate", msc_file, file_name="MSc_Degree_Anirudh_Malik.pdf")
-    except FileNotFoundError:
-        st.warning("MSc certificate file not found.")
-
-    try:
-        with open("bsc degree certificate.pdf", "rb") as bsc_file:
-            st.download_button("🎓 Download BSc Degree Certificate", bsc_file, file_name="BSc_Degree_Anirudh_Malik.pdf")
-    except FileNotFoundError:
-        st.warning("BSc certificate file not found.")
-
     st.markdown("---")
     st.subheader("🌐 Languages")
     st.write("- English (Professional)\n- Hindi (Native)")
 
     st.subheader("💬 Interests")
     st.write("""
-- Statistical modeling & data-driven decisions  
-- Generative AI, LLMs, prompt engineering  
-- MLOps pipelines & scalable ML systems  
-- Data storytelling & visualization  
-- Building AI tools for automation
-""")
-    st.markdown("**🏫 PG Education:**")
-    st.write(""" MSc, University of Sheffield, UK
-    """)
-    
-    st.subheader("🎖️ Hobbies")
-    st.write("""
-- I love playing Basketball.
-- I have a keen interest in physics research which I wish to continue as a hobby and most of the amazing discoveries were made studing physics as a hobby.
+- Statistical modeling & AI-driven insights  
+- Generative AI & Large Language Models (LLMs)  
+- Predictive modeling & Recommender systems  
+- Scalable ML pipelines & MLOps  
+- Quantum Computing & Quantum ML
 """)
 
+    st.subheader("🎖️ Hobbies")
+    st.write("""
+- Basketball 🏀
+- Physics research as a passion project
+""")
 
 # ---- Main Content ----
 with col_main:
     st.markdown('<div id="home"></div>', unsafe_allow_html=True)
 
-    # Create 2 columns: animation on the left, name on the right
     col_lottie, col_intro = st.columns([2, 3])
 
     with col_lottie:
@@ -155,31 +130,29 @@ with col_main:
             st_lottie(lottie_animation, height=250)
 
     with col_intro:
-        # st.markdown("<br><br>", unsafe_allow_html=True)
         st.title("Anirudh Malik")
-        st.subheader("Scientific Software Engineer | Data Scientist | MLOps Engineer")
+        st.subheader("Data Scientist | AI/ML Engineer | Scientific Software Engineer")
     st.write("""
-I’m Anirudh Malik — a Scientific Software Engineer and Data Scientist passionate about bridging AI with real-world applications.  
-I specialize in deploying scalable machine learning solutions, developing AI-powered chatbots, and optimizing ML pipelines for production environments.  
-With a solid foundation in scientific research and practical engineering, I help transform ideas into automated, efficient systems.
+I’m **Anirudh Malik** — a Data Scientist and AI/ML Software Engineer passionate about **bridging research with real-world AI applications**.  
+I specialize in **predictive modeling, generative AI, anomaly detection, and scalable ML pipelines**, with proven experience across research and industry.  
+With a strong background in **particle physics research** and **AI engineering**, I deliver intelligent, production-ready solutions.
 """)
     st.markdown("---")
-
 
     # Skills
     st.markdown('<div id="skills"></div>', unsafe_allow_html=True)
     st.header("📊 Skills Overview")
 
     skill_groups = {
-        "Programming Languages": ["Python", "SQL", "C++", "Bash"],
-        "Machine Learning & Deep Learning": ["Scikit-learn", "TensorFlow", "PyTorch"],
-        "MLOps & Deployment": ["MLflow", "Apache Airflow", "Docker", "Kubernetes", "AWS EC2", "AWS Lambda"],
-        "Data Engineering & Tools": ["Pandas", "NumPy", "PostgreSQL", "MongoDB", "Apache Spark", "Big Data Analytics"],
-        "Web & APIs": ["FastAPI", "Flask", "Django", "REST APIs"],
-        "NLP & LLMs": ["LangChain", "Ollama", "ChromaDB", "Hugging Face Transformers","spaCy", "Haystack", "OpenAI APIs", "Gemini Live API"],
+        "Programming Languages": ["Python", "C++", "SQL", "Bash", "Java"],
+        "Machine Learning & AI": ["Predictive Modeling", "Recommender Systems", "Generative AI (VAEs, GANs, Transformers)", "Deep Learning", "NLP", "Text Mining"],
+        "Big Data & MLOps": ["Apache Spark", "Hadoop", "Docker", "Kubernetes", "Airflow", "MLflow"],
+        "Frameworks & APIs": ["FastAPI", "Flask", "Django", "LangChain", "Ollama", "Mistral"],
+        "Cloud Platforms": ["AWS", "Azure"],
+        "Databases": ["PostgreSQL", "MongoDB", "MySQL"],
         "Visualization": ["Matplotlib", "Seaborn"],
         "Physics & Simulation Tools": ["ROOT", "Geant4", "MadGraph5", "DDSCAT", "Optimal Transport"]
-        }
+    }
 
     for section, items in skill_groups.items():
         st.subheader(f"🔹 {section}")
@@ -187,41 +160,54 @@ With a solid foundation in scientific research and practical engineering, I help
 
     st.markdown("---")
 
-# Experience
-    st.markdown("---")
+    # Experience
     st.markdown("<div id='experience'></div>", unsafe_allow_html=True)
     st.header("💼 Professional Experience")
 
     experience = [
-    {
-        "title": "Research Associate – IIT Delhi (04/2025 – Present)",
-        "description": """Simulated Higgs boson production via gg→ H → τ+τ− using MadGraph5 + Pythia8 + Delphes.
-Conducted EDA on CMS MiniAOD datasets for gen vs reco tau leptons.
-Optimized statistical cuts and applied data mining techniques to improve signal purity.
-Produced reproducible analysis using Jupyter, ROOT, and Git-based pipelines."""
-    },        
         {
-        "title": "AI/ML Specialist – Imagenators, Noida (05/2025 – 07/2025)",
-        "description": """Built and deployed a containerized RAG system using FastAPI, LangChain, FAISS, and Gemini 1.5.
-Developed REST endpoints for PDF ingestion, data wrangling, and real-time LLM-based QA.
-Benchmarked GenAI vs traditional NLP on retrieval accuracy.
-Managed PostgreSQL pipelines with Docker Compose and CI tests."""
-    },
-    {
-        "title": "Trainee Developer – Dev Group, New Delhi (02/2025 – 05/2025)",
-        "description": """Designed CO₂ prediction model using regression with Flask + MLflow.
-Conducted EDA, built dashboards, and contributed to internal analytics tools with REST APIs."""
-    },
-    {
-        "title": "Graduate Researcher – University of Sheffield (09/2023 – 09/2024)",
-        "description": """Developed PICNN classifiers for Z → e+e− using ATLAS MC data.
-Used Optimal Transport to match AF3 and Geant4 simulations."""
-    },
-    {
-        "title": "Undergraduate Researcher – University of Delhi (09/2022 – 05/2023)",
-        "description": """Simulated SPR using DDSCAT and analyzed dielectric properties of AgNO₃ nanomaterials."""
-    },
-]
+            "title": "AI - Software Engineer – Dextra Labs (Aug 2025 – Present)",
+            "description": """Working on **Instavaluate**, an AI-powered valuation platform for auditors & customers.
+- Automated Excel-to-template parsing with NLP.
+- Built AI-powered chatbot for onboarding & valuation support.
+- Developed narrative generation tools for financial reports.
+- Implemented AI-driven forecasting models using market data.
+"""
+        },
+        {
+            "title": "Research Associate – IIT Delhi (Apr 2025 – Present)",
+            "description": """Developing **hybrid anomaly detection (VAE + FROCC)** for unsupervised jet tagging.  
+Simulated **gg → H → τ+τ−** using MadGraph5 + Pythia8 + Delphes.  
+Conducted EDA on CMS MiniAOD datasets for tau leptons.  
+Designed latent-space anomaly scores for model-independent new physics searches.
+"""
+        },
+        {
+            "title": "AI/ML Specialist – Imagenators (May 2025 – Jul 2025)",
+            "description": """Built and deployed containerized **RAG systems** using FastAPI, LangChain, FAISS, Gemini.  
+Benchmarked GenAI vs traditional NLP.  
+Optimized Revolt Motors’ **voice assistant** with Gemini's audio-dialog model.
+"""
+        },
+        {
+            "title": "Trainee Developer – Dev Group (Feb 2025 – May 2025)",
+            "description": """Developed **CO₂ emissions prediction models** using Flask + MLflow.  
+Created dashboards and Python REST APIs for analytics tools.
+"""
+        },
+        {
+            "title": "Graduate Researcher – Univ. of Sheffield (Sep 2023 – Sep 2024)",
+            "description": """Built **PICNN classifiers** for Z → e+e− using ATLAS MC data.  
+Applied **Optimal Transport** to match AF3 & Geant4 simulations.
+"""
+        },
+        {
+            "title": "Undergraduate Researcher – Univ. of Delhi (Sep 2022 – May 2023)",
+            "description": """Simulated **surface plasmon resonance** via DDSCAT.  
+Analyzed dielectric properties of AgNO₃ nanomaterials.
+"""
+        }
+    ]
 
     for exp in experience:
         desc_html = exp["description"].replace("\n", "<br>")
@@ -237,102 +223,6 @@ Used Optimal Transport to match AF3 and Geant4 simulations."""
 
     st.markdown("---")
 
-    # Projects
-    st.markdown('<div id="projects"></div>', unsafe_allow_html=True)
-    st.header("🚀 Key Projects")
-
-    projects = [
-        {
-    "title": "Conversational Voice Assistant (Gemini Live API, 2025)",
-    "description": """Cloned functionality of Revolt Motors’ Rev chatbot using Gemini's native audio dialog model.
-Enabled smooth voice interruptions, real-time streaming responses, and server-to-server architecture using Node.js and Express.
-Handled multilingual voice interactions with sub-2s latency. Submitted working demo with public video + GitHub source.""",
-    "tech": "Gemini Live API, Node.js, Express, WebSockets, HTML5 Audio"
-},
-    {
-        "title": "RAG-based Alumni Chatbot",
-        "description": "Built a retrieval-augmented chatbot that uses Ollama + Mistral, LangChain, Django, and ChromaDB for alumni query resolution. Implemented semantic search with vector stores and a local LLM setup for privacy-focused deployment.",
-        "tech": "LangChain, ChromaDB, Django, Ollama, Docker"
-    },
-    {
-        "title": "AI-Powered Property Chatbot",
-        "description": "Developed a multilingual property chatbot that understands natural queries like '3BHK under ₹1.5Cr near Saket'. Extracted structured filters from free-text input using GPT-based intent parsing and filtered listings in real-time using a CSV/JSON backend.",
-        "tech": "Flask, GPT APIs, Docker, Telegram API, CSV/JSON"
-    },
-    {
-        "title": "Retail Sales Forecasting Pipeline",
-        "description": "Implemented a modular ML pipeline using Apache Airflow for ETL, MLflow for experiment tracking, and Flask for serving predictions. The complete pipeline was deployed on AWS EC2 to simulate a production-grade deployment stack.",
-        "tech": "Apache Airflow, MLflow, Flask, AWS EC2"
-    },
-    {
-        "title": "Electron Identification at CERN",
-        "description": "Designed machine learning models to classify electrons in simulated ATLAS data using PICNNs and applied statistical methods like sPlot and Tag-and-Probe. Matched fast and full simulations using Optimal Transport theory.",
-        "tech": "TensorFlow, ROOT, Geant4, ATLFAST3, Python"
-    },
-    {
-        "title": "3D Schrödinger Equation Solver",
-        "description": "Built a numerical solver for the time-independent 3D Schrödinger equation. Implemented parallelization using CUDA and benchmarked performance differences between GPU and CPU computation.",
-        "tech": "NumPy, SciPy, CUDA, C++"
-    },
-    {
-        "title": "CO₂ Emission Estimator Web App",
-        "description": "Developed a web-based CO₂ emission calculator that takes user inputs to predict emission levels. The model was tracked using MLflow and deployed on AWS EC2 via Flask APIs with a simple interactive frontend.",
-        "tech": "Flask, MLflow, AWS EC2, Scikit-learn"
-    },
-    {
-        "title": "YouTube Comment Sentiment Classifier",
-        "description": "Built a sentiment analysis pipeline for YouTube video comments using Transformer-based models. Classified user sentiment for insights into video reception trends across different content types.",
-        "tech": "Transformers, Hugging Face, Pandas, PyTorch"
-    }
-]
-
-    for project in projects:
-        st.markdown(f"""
-        <div style='margin-bottom: 20px;'>
-        <h3 style='color:#007acc;'>{project['title']}</h3>
-        <p style='font-size:16px; color:white;'>{project['description']}</p>
-        <p style='font-size:15px; font-style:italic; color:#888;'>Tech Used: {project['tech']}</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.markdown("---")
-
-    st.markdown("<div id='self_projects'></div>", unsafe_allow_html=True)
-    st.header("🚀 Self-Initiated Projects")
-
-    projects = [
-    {
-        "title": "Asteroid Discovery with NASA (2021)",
-        "description": "Participated in International Astronomical Search Collaboration; discovered a provisional asteroid (awaiting MPC confirmation)."
-    },
-    {
-        "title": "Hohmann Transfer Orbit Simulator (2021)",
-        "description": "Built GUI for simulating orbital transitions using minimal energy."
-    },
-    {
-        "title": "Fourier Drawing using Rotating Vectors (2022)",
-        "description": "Visualized Fourier Series via animated rotating vectors."
-    },
-    {
-        "title": "Retail Sales Forecasting Pipeline (2023)",
-        "description": "Developed Airflow + Flask + MLFlow pipeline, boosting forecast accuracy by 20%."
-    },
-    {
-        "title": "Fraud Detection MLOps System (2024)",
-        "description": "Built scalable ensemble-based fraud detection system using Apache Spark and AWS Lambda."
-    }
-]
-
-    for proj in projects:
-        st.markdown(f"""
-    <div style='margin-bottom: 25px;'>
-        <h3 style='color:#00b894;'>{proj['title']}</h3>
-        <p style='font-size:16px; color:white;'>{proj['description']}</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    
-    
     # Education
     st.markdown('<div id="education"></div>', unsafe_allow_html=True)
     st.header("🎓 Education")
@@ -340,7 +230,8 @@ Handled multilingual voice interactions with sub-2s latency. Submitted working d
 <div style='font-size:17px; color:white;'>
 <ul>
 <li><b>MSc in Particle Physics</b>, University of Sheffield, UK (2023–2024) — First Class</li>
-<li><b>BSc in Physics, Math & Computer Science</b>, University of Delhi, India (2020–2023) — Distinction</li>
+<li><b>BSc in Physical Science</b>, University of Delhi, India (2020–2023) — Distinction</li>
+<li><b>Senior Secondary (ISC)</b>, Mount Carmel School (2018–2020) — 94%</li>
 </ul>
 </div>
 """, unsafe_allow_html=True)
@@ -350,69 +241,19 @@ Handled multilingual voice interactions with sub-2s latency. Submitted working d
 <div style='font-size:17px; color:white;'>
 <ul>
 <li>Data Science, ML, DL, NLP – Krish AI Technologies (2025)</li>
-<li>SQL & Analytics – Udemy (2025)</li>
-<li>MLOps Bootcamp – Udemy (2024)</li>
-<li>Python for Data Analytics – Learntube.ai (2024)</li>
-</ul>
-</div>
-""", unsafe_allow_html=True)
-
-    st.header("📝 MSc Dissertation Summary")
-    st.markdown("""
-<div style='font-size:17px; color:white;'>
-<b>Electron Identification Using Machine Learning at CERN ATLAS Detector</b><br><br>
-<ul>
-<li>Applied ML to enhance electron identification efficiency using ATLAS Monte Carlo datasets.</li>
-<li>Used Optimal Transport, PICNN, Tag-and-Probe, and sPlot techniques.</li>
-<li>Technologies: TensorFlow, ROOT, Geant4, ATLFAST3, Python, C++.</li>
+<li>Mastering SQL & Analytics – Udemy (2025)</li>
 </ul>
 </div>
 """, unsafe_allow_html=True)
 
     st.markdown("---")
 
-
-#contact form
-import streamlit as st
-#from datetime import datetime
-#from pathlib import Path
-
+# Contact
 st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
 st.header("📬 Contact & Feedback")
 st.write("**📞 Contact:** +91 9058176356")
-st.write("**✉️ Email:** anirudhchoudhary308@gmail.com")
+st.write("**✉️ Email:** anirudhforjobs@gmail.com")
 st.markdown("[💼 LinkedIn](https://linkedin.com/in/whoisaphysicist/)")
 st.markdown("[🐙 GitHub](https://github.com/anirudhmlik)")
 
-# Create 3 columns
-#col1, col2, col3 = st.columns([1, 1, 2])
-
-# Create feedback form
-#with st.form("feedback_form", clear_on_submit=True):
-#    with col1:
-#        name = st.text_input("Name", placeholder="Enter your name")
-#    with col2:
-#        email = st.text_input("Email", placeholder="your@email.com")
-#    with col3:
-#        feedback = st.text_area("Your Feedback", height=150, placeholder="Write your feedback...")
-
-#    submitted = st.form_submit_button("Submit")
-
-#    if submitted:
-#        if name.strip() and email.strip() and feedback.strip():
-#            try:
-#                feedback_dir = Path(__file__).parent
-#                log_file = feedback_dir / "feedback.txt"
-#                with open(log_file, "a", encoding="utf-8") as f:
-#                    f.write(f"{datetime.now().isoformat()}\n")
-#                    f.write(f"Name: {name.strip()}\n")
-#                    f.write(f"Email: {email.strip()}\n")
-#                    f.write(f"Feedback: {feedback.strip()}\n")
-#                    f.write("-" * 40 + "\n")
-#                st.success("✅ Thank you for your feedback!")
-#            except Exception as e:
-#                st.error(f"❌ Failed to save feedback: {e}")
-#        else:
-#            st.warning("⚠️ Please fill all the fields before submitting.")
-
-st.markdown(" MSc | ML Engineer | Anirudh Malik | Data Scientist | Immediately Available ", unsafe_allow_html=True)
+st.markdown(" MSc | AI/ML Engineer | Anirudh Malik | Data Scientist | Immediately Available ", unsafe_allow_html=True)
