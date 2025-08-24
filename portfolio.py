@@ -96,7 +96,7 @@ with col_profile:
     st.markdown("[🐙 GitHub](https://github.com/anirudhmlik)")
 
     try:
-        with open("anirudh_malik_cv.pdf", "rb") as pdf_file:
+        with open("AnirudhMalik.pdf", "rb") as pdf_file:
             st.download_button("📄 Download CV", pdf_file, file_name="Anirudh_Malik_CV.pdf")
     except FileNotFoundError:
         st.warning("CV file not found.")
